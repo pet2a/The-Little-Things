@@ -1,0 +1,40 @@
+.navlink:hover {
+    background: #505050;
+    color: black;
+}
+
+.col-md-3 {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.carousel-indicators .active {
+    background-color: gray;
+}
+
+.col-md-3 img {
+    width: 260px;
+    height: 200px;
+    margin: auto;
+}
+
+body .carousel-indicators {
+    margin-bottom: -5px;
+}
+
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon {
+    background-color: gray;
+}
+
+body .carousel-control-prev,
+body .carousel-control-next {
+    top: auto;
+    bottom: auto;
+    padding-top: 175px;
+}
+
+body .no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
