@@ -1,4 +1,4 @@
-# E-Shopping-Cart
+# The-Little-Things Mall
 
 ## Introduction
 
@@ -18,11 +18,3 @@
 * Any user who want to get in touch with the team can fill the contact form available in the contact section.
 * The user can see all the details about the product either by clicking on the product image or by clicking on the quick view button.
 
-## Tips to Run the Application
-
-1. Install Python version 3.7.7
-2. Install Django version 3.1
-3. Install all the modules which are given in ```requirements.txt``` file.
-4. After installing all the modules open the terminal with current directory as ```E-Shopping-Cart```.
-5. Type the command ```python manage.py runserver```. It will start the server.
-6. Just open the link appeared in the terminal. Web application will appear in front of you.
