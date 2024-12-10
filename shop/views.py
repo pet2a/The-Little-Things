@@ -1,12 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Product, Contact, Order, OrderTracker
+from .models import Product, Contact, Order, OrderTracker, Member
 from math import ceil
 import uuid, json
 
 
 # Create your views here.
 def index(request):
+    def index(request):
+        if request.method == 'POST':
+            if Member.objects.filter(
+                    username=request.POST['username'],
+                    password=request.POST['password']
+            ).exists():
+                members = Member.objects.get(
+                    username=request.POST['username'],
+                    password=request.POST['password']
+                )
+                return render(request, "index.html", {'members': members})
+            else:
+                return render(request, "shop/login.html")
+        else:
+            return render(request, "shop/login.html")
     categories_products = Product.objects.values('category')
     categories = {item['category'] for item in categories_products}
     categories = sorted(list(categories))
@@ -116,3 +131,18 @@ def checkout(request):
         params = {'products':len(products), 'name':name, 'address':address, 'city':city, 'state':state, 'zip':zip_code, 'order_id':orderID}
         return render(request, 'shop/orderConfirm.html', params)
     return render(request, 'shop/checkout.html')
+
+def register(request):
+    if request.method == 'POST':
+        members=Member(
+            name=request.POST['name'],
+            username=request.POST['username'],
+            password=request.POST['password']
+        )
+        members.save()
+        return redirect("shop/login.html")
+    else:
+        return render(request, "shop/register.html")
+
+def login(request):
+    return render(request, "shop/login.html")

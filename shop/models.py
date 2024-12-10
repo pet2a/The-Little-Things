@@ -56,5 +56,10 @@ class OrderTracker(models.Model):
     def __str__(self):
         return self.order_id
         
+class Member(models.Model):
+    name = models.CharField(max_length=200)
+    username = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
 
-#username for admin user is harshit and password is django123
+    def __str__(self):
+        return self.name
