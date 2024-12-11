@@ -56,7 +56,11 @@ ROOT_URLCONF = 'e_shopping_cart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['e_shopping_cart/templates'],
+        'DIRS': [
+        os.path.join(BASE_DIR, 'shop/templates'),
+        os.path.join(BASE_DIR, 'shop/templates/shop')
+
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +89,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

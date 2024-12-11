@@ -1,0 +1,24 @@
+{% extends 'shop/basic.html' %}
+{% load static %}
+{% block body %}
+<h2>Make a Payment</h2>
+
+<form method="post" action="{% url 'stk' %}" class="p-4 shadow rounded bg-light">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone Number :</label>
+    <input type="number" class="form-control" id="phone" name="phone" value="254" placeholder="Phone Number" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="amount" class="form-label">Amount :</label>
+    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" required>
+  </div>
+<div class="d-grid">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+
+
+
+{% endblock %}
